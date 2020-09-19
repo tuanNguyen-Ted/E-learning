@@ -8,10 +8,12 @@ import com.elearning.utilities.mapper.RoleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.LinkedList;
 import java.util.List;
 
 @Service
+@Transactional(rollbackOn = Exception.class)
 public class RoleServicesImpl implements RoleServices {
     private final RoleRepositories roleRepositories;
 

@@ -11,4 +11,5 @@ import java.util.List;
 public interface UserRepositories extends JpaRepository<Users, Integer> {
     @Query("SELECT user FROM Users user WHERE user.fullName = :keyword OR user.email = :keyword OR user.phone= :keyword")
     List<Users> search(String keyword);
+    Users findByEmail(String email);
 }
